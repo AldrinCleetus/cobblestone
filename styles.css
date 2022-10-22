@@ -1,20 +1,68 @@
 body 
 {
+    height: 100vh;
     margin: 0;
     font-family:'Rubik', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: gray;
+    background-color: var(--blackPrimary);
+    color: var(--whitePrimary);
+}
+
+:root {
+    --orangePrimary: #ff6700;
+    --orangeSecondary: #ff9248;
+    --blackPrimary: #121212;
+    --blackSecondary: #212121;
+    --whitePrimary: #f8f8fa;
+
+    
 }
 
 .navbar{
     display: flex;
     width: 100%;
-    background-color: rgb(75, 75, 75);
+    height: 64px;
+    background-color: var(--blackPrimary);
     align-items: center;
     justify-content: center;
+}
+
+.content{
+    display: flex;
+    height: calc(100vh - 64px);
+    justify-content: center;
+    align-items: center;
+}
+
+.share{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px dashed var(--blackSecondary);
+    min-height: 300px;
+    min-width: 300px;
+    flex-direction: column;
+}
+
+.share.active{
+    background-color: var(--blackSecondary);
+    border: 5px dashed grey;
+}
+
+.share button{
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 20px;
+    font-family:'Rubik';
+    background: none;
+    color: azure;
+    cursor: pointer;
+
 }
 
 
