@@ -38,6 +38,7 @@ body
 }
 
 .share{
+    border-radius: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,22 +48,79 @@ body
     flex-direction: column;
 }
 
+.hidden{
+    display: none;
+}
+
+.fileContainer{
+    width: 80%;
+    border-radius: 10px;
+    background-color: var(--blackSecondary);
+    padding: 10px;
+    overflow: hidden;
+}
+
+.fileContainer .fileName{
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+.fileContainer .fileSize{
+    margin: 2px;
+    font-size: 10px;
+    font-weight: light;
+}
+
+.fileContainer .progress{
+    width: 100%;
+    accent-color: var(--orangePrimary);
+    
+}
+
+
+
 .share.active{
     background-color: var(--blackSecondary);
     border: 5px dashed grey;
 }
 
+.share.active span {
+    display: none;
+}
+
+.buttons{
+    padding: 0 20px 0 20px;
+}
+
+.buttons button{
+    margin: 0 10px 0 10px ;
+}
+
+.share h4{
+    padding: 0 20px 0 20px;
+}
+
 .share button{
-    border: 1px solid black;
-    padding: 10px;
-    border-radius: 10px;
+    border: none;
+    padding: 10px 20px 10px 20px;
+    border-radius: 2rem;
     text-decoration: none;
     font-size: 20px;
     font-family:'Rubik';
     background: none;
     color: azure;
     cursor: pointer;
+    background-color: var(--orangePrimary);
 
+}
+
+.share button:hover{
+    outline: 2px solid var(--whitePrimary);
+}
+
+.fileIcon{
+    font-size: 40px;
+    color: white;
 }
 
 
