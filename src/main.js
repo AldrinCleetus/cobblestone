@@ -1,3 +1,5 @@
+import "./styles.css";
+
 const shareArea = document.querySelector('.share')
 const input = shareArea.querySelector('#fileInput')
 const browseButton = shareArea.querySelector('#browseButton')
