@@ -17,6 +17,7 @@ let uploadedFile;
 let hasFile = false
 
 
+
 const acceptedFileFormat= ['application/pdf',
 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
 'application/vnd.openxmlformats-officedocument.wordprocessingml.document']
