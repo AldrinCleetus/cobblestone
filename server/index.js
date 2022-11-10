@@ -3,7 +3,8 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import fileUpload from "express-fileupload";
 
-import { uploadFile } from "./controllers/firebase.js";
+
+
 import { downloadFile, sendFile } from "./routes/handleFile.js";
 
 const app = express()
