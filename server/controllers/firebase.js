@@ -3,7 +3,7 @@ dotenv.config()
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getStorage, ref, uploadBytes,getDownloadURL } from "firebase/storage";
+import { getStorage, ref, uploadBytes,getDownloadURL, deleteObject, listAll } from "firebase/storage";
 import { generateUID } from './uniqueId.js';
 
 const firebaseConfig = {
@@ -20,7 +20,15 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app)
 
-
+const deleteEverything = ()=>{
+  const storageRef = ref(storage,'/')
+    listAll(storageRef).then((listResults) => {
+    const promises = listResults.items.map((item) => {
+      return deleteObject(item)
+    });
+    Promise.all(promises);
+  });
+}
 
 
 export const uploadFiletoFirebase = (file,name,filetype)=>{
@@ -29,10 +37,20 @@ export const uploadFiletoFirebase = (file,name,filetype)=>{
       };
 
       const newName = generateUID()
-      
     const storageRef = ref(storage,newName);
     uploadBytes(storageRef, file,metadata).then((snapshot) => {
-  });
+  }).catch(e =>{
+    switch (e.code) {
+      case 'storage/unauthorized':
+        console.log("Interesting")
+        break;
+      case 'storage/quota-exceeded':
+        deleteEverything()
+        break;
+      default:
+        break;
+    }
+  })
 
   return newName
 }
