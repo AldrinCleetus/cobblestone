@@ -28,7 +28,7 @@
             </div>
             <div class="buttons">
                 <button id="browseButton">Browse Files</button>
-                <button id="shareButton" class="hidden">Share</button>
+                <button id="shareButton" class="hidden"><i class="fa-solid fa-circle-notch fa-spin hidden sharespinner"></i>  Share</button>
                 <button id="removeButton" class="hidden">Remove</button>
             </div>
             <input hidden id="fileInput" type="file" accept=
@@ -39,7 +39,8 @@
             <i class="fa-solid fa-file-arrow-down fileIcon"></i>
             <h4>Enter code to download</h4>
             <input id="UID" type="text" class="code-input" maxlength="6" placeholder="XXXXXX">
-            <button id="downloadButton" >Download</button>
+            
+            <button id="downloadButton" > <i class="fa-solid fa-circle-notch fa-spin hidden downloadspinner"></i> Download</button>
             <a href="" class="hidden" id="downloadlink"></a>
         </div>
     </div>

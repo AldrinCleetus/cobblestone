@@ -129,7 +129,6 @@ body
 }
 
 .code-input{
-    -moz-appearance: textfield;
     border: none;
     border-radius: 20px;
     outline: none;

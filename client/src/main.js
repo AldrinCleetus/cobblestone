@@ -16,6 +16,8 @@ const fileName = fileContainer.querySelector('.fileName')
 const fileSize = fileContainer.querySelector('.fileSize')
 const fileCode = document.querySelector('.filecode')
 const mainCode = document.querySelector('#main-code')
+const shareSpinner = document.querySelector('.sharespinner')
+const downloadSpinner = document.querySelector('.downloadspinner')
 
 const modal = document.querySelector('.modal')
 
@@ -144,10 +146,12 @@ shareArea.addEventListener('drop', e =>{
 })
 
 shareButton.onclick = async ()=>{
+    shareSpinner.classList.remove('hidden')
     let formData = new FormData();
     let data = uploadedFile
     formData.append("file", data);
     uploadFileToServer(formData).then((code)=>{
+        shareSpinner.classList.add('hidden')
         displayFileCode(code)
     })
    
@@ -157,8 +161,10 @@ downloadButton.onclick = async ()=>{
     if(downloadInput.value.length < 6){
         return
     }
+    downloadSpinner.classList.remove('hidden')
 
     downloadFileFromServer(downloadInput.value).then((url)=>{
+        downloadSpinner.classList.add('hidden')
         link.href = url
         link.download = "file"
         link.click()
