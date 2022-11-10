@@ -128,7 +128,7 @@ body
     color: white;
 }
 
-input[type=text] {
+.code-input{
     -moz-appearance: textfield;
     border: none;
     border-radius: 20px;
