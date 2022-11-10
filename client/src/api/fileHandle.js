@@ -2,8 +2,8 @@ import axios from 'axios'
 
 
 
-const download =  'http://localhost:4000/download' 
-const upload = 'http://localhost:4000/upload'
+const download =  'https://cobblestone-production.up.railway.app/download' 
+const upload = 'https://cobblestone-production.up.railway.app/upload'
 
 console.log(download)
 
