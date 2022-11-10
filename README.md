@@ -8,7 +8,7 @@
 
 > A simple web app made with Firebase for sharing small documents.
 
-### 🏠 [Homepage](v)
+### 🏠 [Homepage](https://graceful-longma-b949d3.netlify.app/)
 
 ## Install
 
