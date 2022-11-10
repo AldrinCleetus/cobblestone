@@ -3,7 +3,8 @@ dotenv.config()
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getStorage, ref, uploadBytes } from "firebase/storage";
+import { getStorage, ref, uploadBytes,getDownloadURL } from "firebase/storage";
+import { generateUID } from './uniqueId.js';
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY ,
@@ -22,9 +23,34 @@ export const storage = getStorage(app)
 
 
 
-export const uploadTest = (file,name)=>{
-    const storageRef = ref(storage, name);
-    uploadBytes(storageRef, file).then((snapshot) => {
-    console.log('Uploaded a blob or file!');
+export const uploadFiletoFirebase = (file,name,filetype)=>{
+    const metadata = {
+        contentType: filetype,
+      };
+
+      const newName = generateUID()
+      
+    const storageRef = ref(storage,newName);
+    uploadBytes(storageRef, file,metadata).then((snapshot) => {
   });
+
+  return newName
+}
+
+export const downloadFileFromFirebase = async (code)=>{
+    
+    let downloadableURL = ''
+    const storageRef = ref(storage,code)
+    await getDownloadURL(storageRef)
+    .then((url) => {
+        downloadableURL = url
+  })
+  .catch((error) => {
+    downloadableURL = '404'
+  });
+
+  return downloadableURL
+
+  
+
 }

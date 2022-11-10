@@ -15,12 +15,9 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 
-app.get('/',(req,res)=>{
-    res.send("hello")
-})
 
 app.post('/upload', sendFile)
-app.get('/download', downloadFile)
+app.post('/download', downloadFile)
 
 
 app.listen(4000, () => console.log('Server listening on port 4000'));

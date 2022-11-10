@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="shortcut icon" href="#">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Project Cobblestone</title>
+    <title>Send Files</title>
 
 </head>
 <body>
     <div class="navbar">
-        <h3>Product Title</h3>
+        <h3>SendFiles</h3>
     </div>
     <div class="content">
         <div class="share">
@@ -20,7 +21,10 @@
             <div class="fileContainer hidden">
                 <p class="fileName">File name</p>
                 <p class="fileSize">File Size</p>
-                <progress class="progress" value="19" max="90"></progress>
+                <!-- <progress class="progress" value="19" max="90"></progress> -->
+            </div>
+            <div class="fileContainer filecode hidden">
+                <p id="main-code">CODE</p>
             </div>
             <div class="buttons">
                 <button id="browseButton">Browse Files</button>
@@ -30,6 +34,19 @@
             <input hidden id="fileInput" type="file" accept=
             "application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,
             text/plain, application/pdf" />
+        </div>
+        <div class="share">
+            <i class="fa-solid fa-file-arrow-down fileIcon"></i>
+            <h4>Enter code to download</h4>
+            <input id="UID" type="text" class="code-input" maxlength="6" placeholder="XXXXXX">
+            <button id="downloadButton" >Download</button>
+            <a href="" class="hidden" id="downloadlink"></a>
+        </div>
+    </div>
+
+    <div class="modalContainer">
+        <div class="modal">
+            Test
         </div>
     </div>
 

@@ -6,13 +6,18 @@ const input = shareArea.querySelector('#fileInput')
 const browseButton = shareArea.querySelector('#browseButton')
 const shareButton = shareArea.querySelector('#shareButton')
 const removeButton = shareArea.querySelector('#removeButton')
+const downloadButton = document.querySelector('#downloadButton')
+const downloadInput = document.querySelector('#UID')
 const shareText = shareArea.querySelector('h4')
 const fileIcon = shareArea.querySelector('.fileIcon')
-
+const link = document.querySelector("#downloadlink")
 const fileContainer = shareArea.querySelector('.fileContainer')
 const fileName = fileContainer.querySelector('.fileName')
 const fileSize = fileContainer.querySelector('.fileSize')
+const fileCode = document.querySelector('.filecode')
+const mainCode = document.querySelector('#main-code')
 
+const modal = document.querySelector('.modal')
 
 let uploadedFile;
 let hasFile = false
@@ -37,13 +42,29 @@ const formatBytes = (bytes, decimals = 2)=> {
 
 const isAccepted = ()=>{
     const fileType = uploadedFile.type
+    const currentFileSize = uploadedFile.size
 
-    if( acceptedFileFormat.includes(fileType)){
+
+    if( acceptedFileFormat.includes(fileType) && currentFileSize < 9999999){
         return true
     }
     else{
         return false
     }
+}
+
+const displayFileCode = (code)=>{
+    mainCode.textContent = code
+    shareButton.classList.add('hidden')
+    fileCode.classList.remove("hidden")
+}
+
+const showModal = (timer,message)=>{
+    modal.textContent = message
+    modal.classList.add("active")
+    setTimeout(() => {
+        modal.classList.remove("active")
+    }, timer);
 }
 
 const displayFile = ()=>{
@@ -68,6 +89,7 @@ const cancelFile = ()=>{
     browseButton.classList.remove('hidden')
     fileIcon.classList.remove('fa-beat')
     fileContainer.classList.add('hidden')
+    fileCode.classList.add("hidden")
 
 }
 
@@ -80,6 +102,7 @@ const verifyAndUpdate = ()=>{
     }else{
         uploadedFile = []
         hasFile = false
+        showModal(5000,"Unsupported file type or File too large.")
         console.log('file denied')
         shareArea.classList.remove("active")
     }
@@ -120,10 +143,36 @@ shareArea.addEventListener('drop', e =>{
     
 })
 
-shareButton.onclick = ()=>{
+shareButton.onclick = async ()=>{
     let formData = new FormData();
-    console.log(uploadedFile)
     let data = uploadedFile
     formData.append("file", data);
-    uploadFileToServer(formData)
+    uploadFileToServer(formData).then((code)=>{
+        displayFileCode(code)
+    })
+   
 }
+
+downloadButton.onclick = async ()=>{
+    if(downloadInput.value.length < 6){
+        return
+    }
+
+    downloadFileFromServer(downloadInput.value).then((url)=>{
+        link.href = url
+        link.download = "file"
+        link.click()
+    }).catch(err =>{
+        showModal(5000,"File not found!")
+        console.log(err)
+    })
+    
+
+    
+    
+    
+    
+
+    
+}
+
