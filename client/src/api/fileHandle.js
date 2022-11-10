@@ -1,7 +1,11 @@
 import axios from 'axios'
 
-const download = 'http://localhost:4000/download'
+
+
+const download =  'http://localhost:4000/download' 
 const upload = 'http://localhost:4000/upload'
+
+console.log(download)
 
 export const downloadFileFromServer = async (UID)=>{
 

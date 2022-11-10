@@ -102,7 +102,7 @@ const verifyAndUpdate = ()=>{
     }else{
         uploadedFile = []
         hasFile = false
-        showModal(5000,"Unsupported file type or File too large.")
+        showModal(5000,"Unsupported file type or File too large. Max (10 MB)")
         console.log('file denied')
         shareArea.classList.remove("active")
     }
