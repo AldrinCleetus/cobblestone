@@ -1,7 +1,8 @@
+import { uploadTest } from "../controllers/firebase.js"
 
 
 export const sendFile = (req,res)=>{
-    console.log(req.files.file)
+    uploadTest(req.files.file.data,req.files.file.name)
     res.sendStatus(200)
 }
 
