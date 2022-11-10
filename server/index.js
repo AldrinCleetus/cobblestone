@@ -20,4 +20,4 @@ app.post('/upload', sendFile)
 app.post('/download', downloadFile)
 
 
-app.listen(4000, () => console.log('Server listening on port 4000'));
+app.listen(process.env.PORT, () => console.log('Server listening on port 4000'));
