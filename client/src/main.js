@@ -1,3 +1,4 @@
+import { downloadFileFromServer, uploadFileToServer } from "./api/fileHandle";
 import "./styles.css";
 
 const shareArea = document.querySelector('.share')
@@ -118,3 +119,11 @@ shareArea.addEventListener('drop', e =>{
     verifyAndUpdate()
     
 })
+
+shareButton.onclick = ()=>{
+    let formData = new FormData();
+    console.log(uploadedFile)
+    let data = uploadedFile
+    formData.append("file", data);
+    uploadFileToServer(formData)
+}
