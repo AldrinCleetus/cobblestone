@@ -28,7 +28,8 @@ let hasFile = false
 
 const acceptedFileFormat= ['application/pdf',
 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-'application/vnd.openxmlformats-officedocument.wordprocessingml.document']
+'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+'application/vnd.openxmlformats-officedocument.presentationml.presentation']
 
 const formatBytes = (bytes, decimals = 2)=> {
     if (!+bytes) return '0 Bytes'
@@ -46,6 +47,7 @@ const isAccepted = ()=>{
     const fileType = uploadedFile.type
     const currentFileSize = uploadedFile.size
 
+    console.log(fileType)
 
     if( acceptedFileFormat.includes(fileType) && currentFileSize < 9999999){
         return true
