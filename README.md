@@ -42,7 +42,8 @@ npm run start
 
 
 ## Project Screenshot(s)
-![screenshot](https://i.imgur.com/6LPYnTX.png)
+![screenshot](https://github.com/AldrinCleetus/cobblestone/blob/main/screenshots/screenshot%20(1).png)
+![screenshot](https://github.com/AldrinCleetus/cobblestone/blob/main/screenshots/screenshot%20(2).png)
 
 ## Author
 
