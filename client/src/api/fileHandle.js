@@ -32,6 +32,8 @@ export const uploadFileToServer = (data)=>{
         }
     }).then((response)=>{
         return response.data.data
+    }).catch(err => {
+        console.log(err)
     })
 }
 
