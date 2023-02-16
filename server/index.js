@@ -10,7 +10,7 @@ import { downloadFile, sendFile } from "./routes/handleFile.js";
 const app = express()
 
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://cobblestone-production.up.railway.app");
+    res.header("Access-Control-Allow-Origin", "https://sendfilez.netlify.app/");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
   });
